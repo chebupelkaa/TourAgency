@@ -1,0 +1,50 @@
+﻿
+@model List<ModelReview>
+
+
+<div class="box-container">
+    @{
+        foreach (var review in Model)
+        {
+            <div class="box">
+                <div class="box-top">
+                    <div class="profile">
+
+                        <div class="profile-img"><img src="/images/Guest.png" alt=""/> </div>
+                        <div class="name-user">
+                            @{
+                               
+                                <strong>@review.ApplicationUser.Surname </strong>
+                                 <span>@review.ReviewDate.ToShortDateString()</span>
+                                <span>@review.ApplicationUser.Email</span>
+                            }
+
+                        </div>
+
+                         <div class="reviews">
+                            @{
+                                for(int i = 1; i < 6; i++)
+                                {
+                                    if (i<=@review.Rating) {<i class="fa fa-star"></i>}
+                                    else {<i class="fa fa-star-o"></i>}
+                                }
+                            }
+                            <div style="color:grey;">@review.Tour.ArrivalCountry</div>  
+                        </div>
+                    </div>
+
+
+                    <div class="client-comment">
+                        <p>@review.ReviewText</p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+
+
+
+
+

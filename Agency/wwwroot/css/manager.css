@@ -1,0 +1,18 @@
+﻿.reservationDiv {
+    border-radius: 20px;
+    box-shadow: 0px 0px 9px rgba(0,0,0,0.08);
+    width:1450px;
+    margin-left:20px;
+    margin-top:20px;
+}
+
+.someForm
+{
+    border-radius: 20px;
+    box-shadow: 0px 0px 9px rgba(0,0,0,0.08);
+    width: 1450px;
+    margin-left: 20px;
+    margin-top: 20px;
+  /*  padding:1px 0px 1px 0px;*/
+}
+

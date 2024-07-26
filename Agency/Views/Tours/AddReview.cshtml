@@ -1,0 +1,70 @@
+﻿@model ModelTour
+
+<form  class="formAddReview" id="reviewForm">
+     <div class="stayReview">Оставьте отзыв</div>
+    <div class="star-widget">
+        <input type="radio" name="Rating" id="rate-1" value="1"/>
+        <label for "rate-1" class="fa fa-star"></label>
+        <input type="radio" name="Rating" id="rate-2" value="2"/>
+        <label for "rate-2" class="fa fa-star"></label>
+        <input type="radio" name="Rating" id="rate-3" value="3" />
+        <label for "rate-3" class="fa fa-star"></label>
+        <input type="radio" name="Rating" id="rate-4" value="4"/>
+        <label for "rate-4" class="fa fa-star"></label>
+        <input type="radio" name="Rating" id="rate-5" value="5"/>
+        <label for "rate-5" class="fa fa-star"></label>
+
+    </div>
+    <div class="AddReviewDiv">
+        <input type="text" name="TextReview" class="addReviewInput" required style="height:100px;" placeholder="Ваш отзыв">
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin:20px 50px 20px 50px;width:300px">Оставить отзыв</button> 
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+            const stars = document.querySelectorAll('.star-widget label');
+            const ii = document.querySelectorAll('.star-widget input');
+
+            for (let i = 0; i < stars.length; i++) {
+              stars[i].addEventListener('click', () => {
+                for (let j = 0; j < stars.length; j++) {
+                  stars[j].classList.remove('selected');
+                }
+
+                ii[i].checked = 'true';
+                stars[i].classList.add('selected');
+                for (let k = i - 1; k >= 0; k--) {
+                  stars[k].classList.add('selected');
+                }
+              });
+            }
+
+            const form = document.querySelector('.formAddReview');
+            form.addEventListener('submit', function(event) {
+              event.preventDefault();
+              var formData = $(this).serialize(); 
+              var reviewtext = $('input[name="TextReview"]').val();
+              var rating = $('input[name="Rating"]:checked').val();
+
+                $.ajax({
+                    url: '@Url.Action("AddReview", "Tours")',
+                    type: 'POST',
+                    data: {
+                        ReviewText:reviewtext,
+                        Rating:rating,
+                        TourId:@Model.Id
+                    },
+                    success: function(response) {
+                       if(response.success)
+                       {   
+                            window.location.reload()
+                       }
+                        
+                    }
+                });
+                 
+            });
+           
+</script>
+

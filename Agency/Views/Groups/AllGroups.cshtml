@@ -1,0 +1,41 @@
+﻿
+@model List<ModelGroup>
+
+
+<div style="border-radius: 20px;
+    box-shadow: 0px 0px 9px rgba(0,0,0,0.08);
+    width:1450px;
+    margin-left:20px;
+    margin-top:20px;">
+
+    <table class="table ">
+      <thead class="table-dark">
+        <tr>
+          <th>Описание</th>
+          <th>Откуда-куда</th>
+          <th>Количество ночей</th>
+          <th> </th>
+        </tr>
+      </thead>
+      <tbody>
+            @foreach(var group in Model){
+                <tr>
+                     <td style="width:500px;">@group.Tour.Description</td>
+                    <td>@group.Tour.DepartureCountry-@group.Tour.ArrivalCountry</td>
+                    <td>@group.Tour.NumberOfNights</td>
+                    <td>
+                        <form method="get" action="@Url.Action("ShowParticipants", "Groups")">
+                            <input type="text" name="groupId" hidden value="@group.Id" />
+                            <button type="submit" class="btn btn-primary">Показать участников</button>
+                        </form>
+                    </td>
+                </tr>
+               
+            }
+        </tbody>
+    </table>
+
+</div>
+
+
+

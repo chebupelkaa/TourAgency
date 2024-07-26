@@ -1,0 +1,66 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using DAL.Entities
+@using static DAL.Entities.ApplicationUser
+@inject UserManager<ApplicationUser> UserManager;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Турагентство</title>
+    <link href="~/lib/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/reservationStyle.css" />
+    <link rel="stylesheet" href="~/css/profile.css" />
+    <link rel="stylesheet" href="~/css/Stars.css" />
+    <link rel="stylesheet" href="~/css/manager.css" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+</head>
+
+<body>
+    <header>
+        <div class="inHeader">
+
+        <div class="inHeaderBlock" id="headerBlockId1">
+            <img src="/images/chillIcon.png" alt="Логотип сайта" style="width:50px;height:50px;">
+            Турагентство </>
+            </div>
+        <div class="inHeaderBlock" id="headerBlockId2">
+            <nav id="navMenuId">
+            <ul class="nav justify-content-end" id="navMenuId">
+                <li class="nav-item">
+                    <a href="@Url.Action("Index", "Tours")" class="nav-link" aria-current="page">Туры</a>
+                </li>
+                <li class="nav-item">
+                    <a href="@Url.Action("AllReviews", "Reviews")" class="nav-link">Отзывы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Documentation")">Документация</a>
+                </li>
+                <li class="nav-item">
+                    <a href="@Url.Action("Guest", "Accounts")" class="nav-link" >Мой кабинет</a>
+                </li>
+            </ul>
+            </nav>
+        </div>
+        </div>
+    </header>
+    <div id="content">
+        @RenderBody() 
+    </div>
+
+
+@*    <footer class="footer">
+        <p>&copy; 2023 Турагентство. Все права защищены.</p>
+    </footer>*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @await RenderSectionAsync("Scripts",required:false)
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using DAL.Entities
+@using static DAL.Entities.ApplicationUser
+@inject UserManager<ApplicationUser> UserManager;
+
+@model List<ModelTour>
+
+@if (User.Identity.IsAuthenticated)
+{
+    var user = await UserManager.GetUserAsync(User);
+    @*var user = ViewBag.UserEntity as ModelUser;*@
+    <div class="whoAreYouDiv">Здравствуйте, @user.Surname
+    <a href="@Url.Action("LogOut", "Accounts")" style="color:grey;text-decoration: none;margin-left:30px;">Выйти</a>
+    </div>
+}
+else
+{ 
+    <div class="whoAreYouDiv">Желаете авторизироваться?
+            <div>
+                <a href="@Url.Action("logIn", "Accounts")" style="color:grey;">Войти</a>
+                <a href="@Url.Action("Register", "Accounts")" style="color:grey;">Регистрация</a>
+            </div>
+    </div>  
+}
+
+<form asp-controller="Tours" asp-action="SearchTour" method="get">
+
+   <div class="headerSearch">
+       <div style="padding:0px 10px 10px 10px;font-size:20px;text-align:center;">Подбор туров</div>
+  <div class="wrapper">
+    <div class="oneBlock">
+      <label for="DepartureCountryId" class="labelSearch">Страна отправления</label>
+      <input type="text" class="inputSearch" name="DepartureCountry" id="DepartureCountryId" placeholder="" required />
+    </div>
+    <div class="oneBlock">
+      <label for="ArrivalCountryId" class="labelSearch" >Страна прибытия</label>
+      <input type="text"  class="inputSearch" name="ArrivalCountry" id="ArrivalCountryId" placeholder="" required />
+    </div>
+    <div class="oneBlock">
+       <label for="startDateId" class="labelSearch">Дата отправления</label>
+      <input type="date"  class="inputSearch" name="StartDate" id="startDateId" pattern="\d{2}\.\d{2}\.\d{4}" required />
+    </div>
+    <div class="oneBlock">
+       <label for="NumberOfNightsId" class="labelSearch">Количество ночей</label>
+      <input type="text"  class="inputSearch" name="NumberOfNights" id="NumberOfNightsId" placeholder="" required />
+    </div class="oneBlock">
+    <div>
+      <input type="submit" class="searchButton" value="Поиск" /> 
+      </div>
+
+      </div>
+  </div>
+</form>
+
+@if (ViewBag.SearchResults != null)
+{
+    var searchResults = ViewBag.SearchResults as List<ModelTour>;
+        <div class="tourList">
+            <p>Результаты поиска:</p>
+            @Html.Partial("SearchTour",searchResults)
+        </div>
+}
+else
+{
+        <div class="tourList">
+             <div style="padding:10px 10px 10px 10px;font-size:20px;">Предложения для отдыха</div>
+             @Html.Partial("SearchTour")
+        </div>
+
+}
+

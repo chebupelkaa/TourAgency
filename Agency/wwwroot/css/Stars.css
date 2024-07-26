@@ -1,0 +1,33 @@
+﻿
+/*
+звезды*/
+/*.star-widget input[type="radio"] {
+    display: none;
+}
+
+.star-widget label {
+    color: #444;
+    font-size: 2em;
+    padding: 0.2em;
+    transition: all 0.2s ease;
+}
+
+.star-widget label.checked,
+.star-widget label:hover {
+    color: #fd4;
+}*/
+
+
+.star-widget input[type="radio"] {
+    display: none;
+}
+.star-widget label {
+    color: black;
+    font-size: 2em;
+    padding: 0.2em;
+    transition: all 0.2s ease;
+}
+
+.star-widget label.selected {
+    color: yellow;
+}

@@ -1,0 +1,27 @@
+﻿@model List<ModelUser>
+
+<div class="someForm">
+        <a href="@Url.Action("AllGroups", "Groups")" class="btn btn-danger" style="margin:10px 0px 10px 1250px">Назад к группам</a>
+     <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th>Номер</th>
+          <th>Имя</th>
+          <th>Почта</th>
+          <th>Номер телефона</th>
+        </tr>
+      </thead>
+      <tbody>
+            @for (int i= 0;i<@Model.Count;i++){
+                <tr>
+                    <td>@(i+1)</td>
+                    <td>@Model[i].Surname</td>
+                    <td>@Model[i].Email</td>
+                    <td>@Model[i].Phone</td>
+                </tr>
+               
+            }
+        </tbody>
+    </table>
+
+</div>

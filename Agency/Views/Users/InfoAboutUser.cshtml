@@ -1,0 +1,46 @@
+﻿@model ModelUser
+@*@using System.Security.Claims*@
+
+@if (User.IsInRole("Client") && !User.IsInRole("Manager"))
+{
+    <div class="myProfile">
+
+            <h3 style="display: inline-block;text-align:right;padding-left:200px;">Личный кабинет</h3>
+            <a asp-controller="Users" asp-action="ReservationsForUser" class="btn btn-primary" style="margin:0px 00px 0px 20px;display: inline-block;">Бронирования</a>
+            <a asp-area="" asp-controller="Accounts" asp-action="LogOut" class="btn btn-primary" style="display: inline-block;">Выйти</a>
+            <div style="margin-left:20px;">
+                <div class="profile-img-cabinet"><img src="/images/Guest.png" alt=""/> </div>
+            </div>
+        
+
+             <div class="info">
+                <div style="margin-bottom: 20px;">Имя: @Model.Surname</div>
+                <div style="margin-bottom: 20px;">E-mail: @Model.Email</div>
+                <div>Телефон: @Model.Phone</div>
+             </div>              
+    </div>
+ }
+
+@if(User.IsInRole("Manager")){
+    <div class="myProfile">
+        <h3 style="text-align:center;">Личный кабинет</h3>
+        <div style="text-align:center;margin-bottom:10px;">
+            <a asp-controller="Reservations" asp-action="AllReservations" class="btn btn-primary" style="margin:0px 00px 0px 20px;display: inline-block;">Оформление туров</a>
+            <a asp-controller="Groups" asp-action="AllGroups" class="btn btn-primary" style="display: inline-block;">Группы туров</a>
+
+            <a asp-area="" asp-controller="Accounts" asp-action="LogOut" class="btn btn-primary" style="display: inline-block;">Выйти</a>
+        </div>
+
+        <div style="margin-left:20px;">
+            <div class="profile-img-cabinet"><img src="/images/Guest.png" alt=""/> </div>
+        </div>
+        
+
+         <div class="info">
+            <div style="margin-bottom: 20px;">Имя: @Model.Surname</div>
+            <div style="margin-bottom: 20px;">E-mail: @Model.Email</div>
+            <div>Телефон: @Model.Phone</div>
+         </div>  
+    </div>
+}
+

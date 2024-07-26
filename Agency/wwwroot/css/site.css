@@ -1,0 +1,367 @@
+/*html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+
+}
+*/
+
+.navMenu {
+    margin: 27px auto 0;
+    position: relative;
+    width: 490px;
+    height: 50px;
+    background-color: aliceblue;
+    border-radius: 8px;
+    font-size: 0;
+}
+
+
+
+body {
+    font-size: 12px;
+    font-family: sans-serif;
+    background: white;
+   
+/*    background-image: url("/images/jojo1.png"); 
+    background-size: cover;*/
+}
+
+
+/*p {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    color: #ecf0f1;
+    font-family: 'Cherry Swash',cursive;
+    font-size: 16px;
+}*/
+.inHeader {
+    display: grid;
+    grid-template-columns: 860px 422px;
+  
+    border-bottom: 1px solid grey;
+    padding-bottom:10px;
+  /*  background-color:aliceblue;*/
+}
+
+#headerBlockId1 {
+    color: black;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Segoe Print';
+    padding:0px 0px 0px 200px;
+}
+#headerBlockId2{
+    padding-top:20px;
+}
+.nav-item{
+    
+}
+#navMenuId {
+    background-color: aliceblue;
+    border-radius: 20px;
+    width:500px;
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    background-color: white;
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.09);
+    background-color: white;
+    height: 84px;
+    background-color: rgba(255, 255, 255, 0.5);
+  
+}
+
+.searchButton {
+    border: none;
+    background-color: aliceblue;
+    /*display: block;*/
+    padding: 14px 28px;
+    font-size: 18px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    cursor: pointer;
+    border-end-end-radius: 10px;
+    border-start-end-radius: 10px;
+    font-family: Symbol;
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.09);
+}
+
+.labelSearch {
+    display: block;
+    padding-bottom: 7px;
+   
+}
+
+.inputSearch {
+    border: none;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.06);
+    width: 100%;
+    transition: .3s border-color;
+   /* position: relative;*/
+    font-size: 19px;
+    background-color: white;
+    border-radius: 7px;
+}
+
+.inputSearch:hover {
+    border: 1px solid #aaa;
+}
+
+.oneBlock {
+    padding: 10px;
+    font-size: 15px;
+   
+}
+
+.tourList {
+    /*border-top: 1px solid black;*/
+    background-color: azure;
+    font-size: 16px;
+    margin: 2% 13% 3% 13%;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.09);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.headerSearch {
+    background-color: azure;
+    font-size: 16px;
+    margin: 2% 13% 0 13%;
+    /* border-radius: 10px;*/
+    padding: 16px;
+    background-color: rgba(255, 255, 255, 0.5);
+
+    
+}
+.details {
+    margin: 2% 10% 0 10%;
+    padding-left:100px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.09);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+   /* width:1300px;*/
+}
+.details-details {
+    margin-left: 20px;
+
+}
+
+footer {
+   position: relative;
+
+   margin-top:40px;
+   bottom: 10px;
+   width: 100%;
+   text-align: center;
+   color: black;
+   font-family: 'Cherry Swash',cursive;
+   font-size: 16px;
+}
+
+
+span.text-danger {
+    display: block;
+    text-align:left;
+    margin-left:155px;
+}
+
+.labelForReg {
+    display: inline-block;
+    width: 140px;
+    text-align:right;
+}
+.form-group {
+    margin: 0px 0px 20px 0px;
+    
+}
+.form-register {
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.09);
+
+    padding: 10px 0px 10px 50px;
+    border-radius: 20px;
+}
+#inputRegId {
+    display: inline-block;
+    width: calc(100% - 200px);
+    margin-left: 10px;
+}
+
+.whoAreYouDiv{
+    color:gray;
+    text-align:right;
+    padding-right:210px;
+    margin: 10px 0px 0px 0px ;
+}
+
+.needToAuthorizeParent {
+    display: grid;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.09);
+    width: 40%;
+    height:300px;
+    margin: 80px 0px 0px 30%;
+}
+#needToAuthorizeChild {
+    align-self: center;
+    justify-self: center;
+}
+#sigInbut {
+    height: 60px;
+    font-size: 25px;
+}
+
+#regbut {
+    height: 60px;
+    font-size: 25px;
+}
+
+.reviewHead{
+    font-size:20px;
+    margin-left:700px;
+}
+
+
+
+.box-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    width:100%; 
+    margin-top:30px;
+    /*height:550px;*/
+}
+.box{
+    width:550px;
+    box-shadow: 2px 2px  30px rgba(0,0,0,0.1);
+    background-color:#ffffff;
+    padding:20px;
+   /* cursor:pointer;*/
+    margin:10px;
+    border-radius:20px;
+}
+.profile-img{
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    overflow:hidden;
+    margin-right:10px;
+}
+.profile-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+}
+.profile{
+    display:flex;
+    align-items:center;
+    
+}
+
+.name-user{
+    display:flex;
+    flex-direction:column;
+}
+
+.name-user strong{
+    color:#3d3d3d;
+    font-size:1.1rem;
+    letter-spacing:0.5px;
+}
+
+ .name-user span {
+    color: grey ;
+    font-size: 0.8rem;
+}
+
+.reviews {
+   color: palevioletred;
+    margin: 0px 0px 0px 240px;
+}
+ .box{
+     display:flex;
+     justify-content:space-between;
+     align-items:center;
+     margin-bottom:20px;
+ }
+
+.InputTourDiv {
+    text-align: center;
+    padding: 10px 0px 20px 0px;
+}
+.star-widget {
+    text-align: center;
+}
+.AddReviewDiv {
+    text-align: center;
+}
+
+.formAddReview {
+    width: 400px;
+    margin: 30px 0px 10px 560px;
+    box-shadow: 0px 0px 15px rgb(100, 0, 255,0.1);
+    border-radius: 20px;
+    /*    display:flex;
+    text-align:center;
+    justify-content:center;*/
+}
+
+.stayReview{
+    font-size:20px;
+    text-align:center;
+    padding:10px 0px 5px 0px;
+}
+
+
+/*.star-widget input[type="radio"]:checked ~ label,
+.star-widget input[type="radio"]:hover ~ label {
+    color: #fd4;
+}*/
+
+
+
+
+.addReviewInput {
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.08);
+    border: none;
+    border-radius:7px;
+    width:300px;
+    height:40px;
+}
+
+
+
+.image-container {
+   width: 600px; /* Желаемая ширина контейнера */
+   height: 400px; /* Желаемая высота контейнера */
+   overflow: hidden; /* Скрыть часть изображения, выходящую за пределы контейнера */
+}
+
+.image-container img {
+   width: 100%; /* Установить ширину изображения на 100% от родительского контейнера */
+   height: auto; /* Автоматически рассчитать высоту изображения с сохранением пропорций */
+   transform: scale(1); /* Уменьшить размер изображения вдвое */
+   transform-origin: top left; /* Установить точку применения преобразования в верхний левый угол */
+}

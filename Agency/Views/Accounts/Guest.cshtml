@@ -1,0 +1,19 @@
+﻿@*
+@using DAL.Entities
+@using static DAL.Entities.AvailableRoles*@
+
+@if(User.Identity.IsAuthenticated){
+    <script>window.location.href = '@Url.Action("InfoAboutUser", "Users")';</script>
+    @*@Html.Partial("Client")*@
+    ViewBag.UserEntity = User;
+}
+else {
+    <div class = "needToAuthorizeParent">
+        <div id="needToAuthorizeChild"><h1>Вы не вошли в аккаунт</h1></div>
+        <div id="needToAuthorizeChild">
+            <a asp-area="" asp-controller="Accounts" asp-action="LogIn" class="btn btn-primary" id="sigInbut">Войти</a>
+            <a asp-area="" asp-controller="Accounts" asp-action="Register" class="btn btn-primary" id="regbut">Зарегистрироваться</a>
+        </div>
+    </div>
+    
+}

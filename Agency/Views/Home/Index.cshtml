@@ -1,0 +1,19 @@
+﻿@using System.Collections.Generic
+@model Dictionary<string, object>
+
+@{
+    ViewBag.Title = "ASP.NET Identity";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">Данные пользователей</div>
+    <table class="table table-striped">
+        @foreach (string key in Model.Keys) 
+        {
+            <tr>
+                <th>@key</th>
+                <td>@Model[key]</td>
+            </tr>
+        }
+    </table>
+</div>

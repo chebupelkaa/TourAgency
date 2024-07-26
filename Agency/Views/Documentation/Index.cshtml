@@ -1,0 +1,53 @@
+﻿
+
+<h1>Документация API</h1>
+<h2>Методы:</h2>
+<div>Метод GET/Api/Tour - получение списка всех туров</div>
+<div>Параметры: без параметров</div>
+<div>Ответ: Code=200, Description=Success</div>
+<div> Request URL http://localhost:5192/api/Tour </div>
+<div>
+    [
+  {
+    "id": 1,
+    "description": "Живописная зеленая территория, качественный сервис. Дизайн номеров и архитектура отеля выдержаны в стиле хай-тек. Рекомендуем для спокойного отдыха.",
+    "pictures": "tourTurkey",
+    "price": 1200,
+    "startDate": "2023-01-20T00:00:00",
+    "numberOfNights": 3,
+    "departureCountry": "Беларусь",
+    "arrivalCountry": "Турция",
+    "numberOfParticipants": 10
+  },
+  {
+    "id": 11,
+    "description": "Последняя реновация проведена в 2016 году, полная реновация общественных зон - зимой 2018-2019 (спа центр, тренажерный зал, крытый бассейн, детская открытая площадка и бассейн, лобби, конференц зал, бары).\r\n\r\nСостоит из 2 четырёхэтажных корпусов. Всего в отеле 164 номера",
+    "pictures": "tourKipr",
+    "price": 1138,
+    "startDate": "2023-07-24T00:00:00",
+    "numberOfNights": 12,
+    "departureCountry": "Москва",
+    "arrivalCountry": "Кипр",
+    "numberOfParticipants": 20
+  }]
+</div>
+
+
+
+<div>Метод Post/Api/Tour - добавляет новый тур</div>
+<div>Параметры: без параметров</div>
+
+<div>Метод Put/Api/Tour - обновляет тур</div>
+<div>Параметры: без параметров</div>
+<div>Ответ: Code=200, Description=Success</div>
+
+<div>Метод GET/Api/Tour/Search - поиск туров</div>
+<div>Параметры: </div>
+<div>string StartDate: дата начала</div>
+<div>int NumberOfNights: количество ночей</div>
+<div>Ответ: Code=200, Description=Success</div>
+
+<div>Метод GET/Api/Tour/{id}- получение тура</div>
+<div>Параметры: </div>
+<div>int Id: идентификатор тура</div>
+<div>Ответ: Code=200, Description=Success</div>

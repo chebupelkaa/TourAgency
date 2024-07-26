@@ -1,0 +1,75 @@
+﻿@model ModelTour
+
+<div class="details">
+
+    <div class="image-container">
+        <img src="/images/@(Model.Pictures).jpg" alt=""/>
+    </div>
+
+    <div class="details-details">
+        <form asp-controller="Tours" asp-action="AddReservation" method="post">
+            <h3>@Model.DepartureCountry - @Model.ArrivalCountry</h3>
+            <div style="width:500px;">Описание: @Model.Description</div>
+            <div>Дата начала: @Model.StartDate.ToShortDateString()</div>
+            <div>Количество ночей: @Model.NumberOfNights</div>
+            <div>Цена тура: @Model.Price</div>
+
+            <input type="text" name="Id" hidden value="@Model.Id"/>
+            <div>Доп. услуги:</div>
+ 
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="check1" value="200">
+                <label class="form-check-label" for="flexSwitchCheckDefault">экскурсии (+200 EUR)</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="check2" value="100">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Питание (+100 EUR)</label>
+            </div>
+
+            <div style="display: flex; width:79%;border-radius:15px;margin-top:20px;">
+                <div style="margin-left:60px;margin-top:5px">К оплате: <span id="total">0</span> EUR </div>
+                <input type="text" name="Price" id="total" hidden value="@Model.Price"/>
+                <div>
+                    <input type="submit" name="reserveButton" class="btn btn-warning" value="Забронировать" style="margin:0px 0px 0px 28px;height:100%;
+                        border-end-end-radius: 15px;
+                        border-end-start-radius: 15px;
+                        border-start-start-radius:15px;
+                        border-start-end-radius: 15px;width:100%;" />
+
+                </div>
+            </div>
+        </form>
+     </div>
+
+ </div>
+
+
+
+@{
+    var ReviewsForTourResults = ViewBag.ReviewsForTour as List<ModelReview>;
+    ModelReview model = new ModelReview();
+    //var user =ViewBag.UserEntity as ModelUser;
+    @Html.Partial("AddReview")
+
+    @Html.Partial("ReviewsForTour",ReviewsForTourResults)
+}
+
+
+<script>
+    var checkboxes = document.querySelectorAll('input[type=checkbox]');
+    var totalElement = document.querySelector('#total');
+    function handleChange() {
+        var total = @Model.Price;
+        checkboxes.forEach(function(checkbox) {
+            if (checkbox.checked) {
+                total += parseInt(checkbox.value);
+            }
+        });
+        totalElement.textContent = total;
+    }
+
+    checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', handleChange);
+    });
+    handleChange();
+</script>

@@ -1,0 +1,56 @@
+﻿@model List<ModelReservation>
+
+<div class="reservationDiv">
+    <h3 style="display:inline;margin-left:10px;">Список заявок на бронирование</h3>
+    <a href="@Url.Action("InfoAboutUser", "Users")" class="btn btn-danger" style="margin:10px 0px 10px 900px">Назад</a>
+
+    <table class="table ">
+      <thead class="table-dark">
+        <tr>
+          <th>Описание тура</th>
+          <th>Откуда - куда</th>
+          <th>Имя и e-mail клиента</th>
+          <th>Дата бронирования</th>
+          <th>Сумма оплаты</th>
+          <th>Статус</th>
+          <th> </th>
+        </tr>
+      </thead>
+      <tbody>
+            @foreach (var reservation in Model)
+            {
+                <tr>
+                    <td style="width:450px;">@reservation.Tour.Description</td>
+                    <td>@reservation.Tour.DepartureCountry - @reservation.Tour.ArrivalCountry</td>
+                    <td>@reservation.ApplicationUser.Surname, @reservation.ApplicationUser.Email</td>
+                    <td>@reservation.DateOfReservation</td>
+
+                    <td>@reservation.SumOfPayment EUR</td>
+                    <td>@reservation.Status</td>
+                     <td>
+                        @if(@reservation.Status=="В ожидании подтверждения")
+                        {
+                            <form method="post" action="@Url.Action("AddContract", "Reservations")">
+                                <input type="text" name="reservationId" hidden value="@reservation.Id" />
+                                <button type="submit" class="btn btn-primary" 
+                                style="margin:0px 0px 10px 0px;width:100px">Оформить</button>
+                            </form>
+
+
+                            <form method="post" action="@Url.Action("UpdateReservationToNo", "Reservations")">
+                                <input type="text" name="reservationId" hidden value="@reservation.Id" />
+                                <button type="submit" class="btn btn-primary" style="width:100px;">Отказать</button>
+                            </form>
+
+                            
+                        }
+                        
+                     </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+

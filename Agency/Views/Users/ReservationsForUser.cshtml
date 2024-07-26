@@ -1,0 +1,29 @@
+﻿@model List<ModelReservation>
+
+<div class="tourList">
+
+    <div class="row row-cols-1 row-cols-md-3 g-4" > 
+        @foreach (var reservation in Model)
+        {
+          <div class="col">
+            <div class="card h-100">
+              <img src="/images/@(reservation.Tour.Pictures).jpg" class="card-img-top" alt="Tour Image">
+              <div class="card-body">
+                <h5 class="card-title">@reservation.Tour.DepartureCountry -> @reservation.Tour.ArrivalCountry</h5>
+                <p class="card-text">@reservation.Tour.Description</p>
+                <p class="card-text">Дата бронирования: @reservation.DateOfReservation</p>
+                <p class="card-text">Статус: @reservation.Status</p>
+                <p class="card-text">Сумма оплаты: @reservation.SumOfPayment</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">
+                    @*<a href="@Url.Action("Details", "Tours", tour)" class="btn btn-outline-info">Подробнее</a>*@
+
+                </small>
+              </div>
+            </div>
+          </div>
+        }
+
+    </div>
+</div>

@@ -1,0 +1,8 @@
+﻿@model ModelContract
+
+@if (TempData["ContractSuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["ContractSuccessMessage"]</div>
+}
+
+<a href="@Url.Action("AllReservations", "Reservations")" class="btn btn-danger" style="margin:10px 0px 10px 1350px">Назад</a>
